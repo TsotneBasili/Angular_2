@@ -14,11 +14,13 @@ export class ProfileComponent {
     input = ''
     charCount = this.input.length
 
-    liveResult(ev: Event) {
-      const val = (ev.target as HTMLInputElement).value
-      this.input = val
-      
-      this.charCount = this.input.length
+    get inputSet (){
+      return this.input
+    }
+
+    set inputSet (value){
+      this.input = value;
+      this.charCount = value.length;
     }
 
     resetBio(ev: Event) {

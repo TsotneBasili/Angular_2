@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="profile.component.scss">
-    <title>{{title}}</title>
-</head>
-<body>
-    <div class="container main_div">
-        <p>Name: {{name}} </p>
-        <p>Age: {{age}}</p>
-        <div class="bio_div">
-            <label for="bio">Bio: </label>
-            <input type="text" name="Bio"  class="bio_input" (input)="liveResult($event);" value="{{input}}" >
-        </div>
-        
-        <p>Live Preview: "{{input}}" </p>
-        <p>Character Count: {{charCount}}</p>
-        <button (click)="resetBio($event);">Reset Bio</button>
-        
+
+<div class="container main_div">
+    <p>Name: {{name}} </p>
+    <p>Age: {{age}}</p>
+    <div class="bio_div">
+        <label for="bio">Bio: </label>
+        <!-- <input type="text" name="Bio"  class="bio_input" (input)="liveResult($event);" value="{{input}}" > -->
+        <input type="text" name="Bio"  class="bio_input" [(ngModel)] = "inputSet" >
     </div>
-   
-</body>
-</html>
+    
+    <p>Live Preview: "{{input}}" </p>
+    <p>Character Count: {{charCount}}</p>
+    <button (click)="resetBio($event);">Reset Bio</button>
+    
+</div>
+
 
 
 
