@@ -1,0 +1,17 @@
+.main_div {
+    padding: 20px;
+    display: inline-block;
+    background-color: #1897c9;
+}
+
+.bio_div {
+    display: flex;
+    column-gap: 5px;
+}
+
+.bio_input {
+    text-align: start;
+    width: 300px; 
+    height: 200px; 
+    background-color: lightgray;
+}
