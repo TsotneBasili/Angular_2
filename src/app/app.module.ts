@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
-import { Chat2Component } from './chat2/chat2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     ChatComponent,
-    Chat2Component
   ],
   imports: [
     BrowserModule,

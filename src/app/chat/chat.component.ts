@@ -12,7 +12,9 @@ export class ChatComponent {
   // @Output() sendMassage: EventEmitter<string> = new EventEmitter
   @Output() sendMassage: EventEmitter<{ text: string, sender: number }> = new EventEmitter();
 
-  
+  constructor(){
+    this.text = this.text
+  }
 
   sentMassage() {
     // this.sendMassage.emit(this.text)
