@@ -6,22 +6,20 @@
         <div class="messages">
             <div *ngFor="let msg of receivedMassages" 
                  [ngClass]="msg.sender === 2 ? 'message-item sender1' : 'message-item sender2'">
-                {{ msg.text }}
+                 <span *ngIf="msg.sender === 2">John: {{ msg.text }} </span>
+                 <span *ngIf="msg.sender !== 2">Mark: {{ msg.text }}</span>
             </div>
         </div>
         <app-chat [senderId]="1"  (sendMassage)="receivedMassage($event)"></app-chat>
     </div>
-    <!-- <div class="messages">
-        <div *ngFor="let msg of receivedMassages" class="message-item">
-            {{ msg }}
-        </div>
-    </div> -->
+    
     <div>
         
         <div class="messages">
             <div *ngFor="let msg of receivedMassages" 
                  [ngClass]="msg.sender === 1 ? 'message-item sender1' : 'message-item sender2'">
-                {{ msg.text }}
+                <span *ngIf="msg.sender === 2">John: {{ msg.text }} </span>
+                <span *ngIf="msg.sender !== 2">Mark: {{ msg.text }}</span>
             </div>
         </div>
     
