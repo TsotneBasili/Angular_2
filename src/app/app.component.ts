@@ -7,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'course-111';
+  receivedMassages: { text: string, sender: number }[] = [];
+
+  receivedMassage(event: { text: string, sender: number }) {
+    this.receivedMassages.push(event);
+  }
+
+  // receivedMassages: string[] = []
+
+  // receivedMassage(ev: string) {
+  //   this.receivedMassages.push(ev)
+  // }
 }

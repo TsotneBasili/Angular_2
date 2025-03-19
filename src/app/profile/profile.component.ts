@@ -7,14 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-    title: string = 'profile';
+    // title: string = 'profile';
 
-    name = 'Alice'
-    age: number = 25
-    input = ''
+    // name = 'Alice'
+    // age: number = 25
+    // input = ''
 
 
-    resetBio(ev: Event) {
-      this.input = ""
-    }
+    // resetBio(ev: Event) {
+    //   this.input = ""
+    // }
 }

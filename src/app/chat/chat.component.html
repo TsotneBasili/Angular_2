@@ -1,0 +1,10 @@
+
+
+   
+    <div class="chat-container container">
+        <div class="chat-box">
+            <input type="text" [(ngModel)]="text" (keyup.enter)="sentMassage()"  placeholder="Type a message...">
+            <button (click)="sentMassage()">Send</button>
+        </div>
+        
+    </div>

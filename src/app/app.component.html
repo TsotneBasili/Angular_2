@@ -1,3 +1,20 @@
-<app-profile>
-  
-</app-profile>
+
+
+<div class="d-flex">
+    <app-chat [senderId]="1"  (sendMassage)="receivedMassage($event)"></app-chat>
+    <!-- <div class="messages">
+        <div *ngFor="let msg of receivedMassages" class="message-item">
+            {{ msg }}
+        </div>
+    </div> -->
+
+    <div class="messages">
+        <div *ngFor="let msg of receivedMassages" 
+             [ngClass]="msg.sender === 1 ? 'message-item sender1' : 'message-item sender2'">
+            {{ msg.text }}
+        </div>
+    </div>
+
+    <app-chat [senderId]="2" (sendMassage)="receivedMassage($event)"></app-chat>
+</div>
+
