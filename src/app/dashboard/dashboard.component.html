@@ -1,0 +1,9 @@
+<div class="d-flex dashboard_div">
+    <div>     
+        <app-chat [senderId]="1"  (sendMassage)="receivedMassage($event)"  [receivedMassages]="receivedMassages"></app-chat>
+    </div>
+    
+    <div>
+        <app-chat [senderId]="2" (sendMassage)="receivedMassage($event)"  [receivedMassages]="receivedMassages"></app-chat>
+    </div>
+</div>

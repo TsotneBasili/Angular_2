@@ -1,0 +1,128 @@
+
+
+/* header  */
+.header {
+    position: fixed;
+    max-width: inherit;
+    width: 100%;
+    top: 0;
+    // left: 50%;
+    // transform: translate(-50%); 
+    z-index:4;
+
+    background-color: #012426;
+    padding: 16px 94px;
+    border-bottom: 2px solid #05BCCA;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header_x_mark,
+.header_hamburger {
+    display: none;
+}
+
+.header_nav_ul {
+    display: flex;
+    column-gap: 72px;
+}
+
+.header_nav_ul_li_a {
+    font-family: "Inter", serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    color: #A1C3C9;
+
+    transition: 0.3s;
+}
+
+.header_active_color {
+    color: #05BCCA;
+}
+
+.header_nav_ul_li_a:hover {
+    text-shadow: 4px 4px 4px #05BCCA;
+}
+
+.logo {
+    transition: 0.3s;
+    animation: neon-glow 1s linear forwards infinite;
+}
+
+@keyframes neon-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px #05F2F2) drop-shadow(0 0 10px #05F2F2);
+    }
+    50% {
+        filter: drop-shadow(0 0 20px #05BCCA) drop-shadow(0 0 30px #05BCCA);
+    }
+}
+
+.logo:hover {
+    transform: rotateY(180deg);
+}
+
+.header_section {
+    display: flex;
+    column-gap: 32px;
+}
+
+.header_button1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* column-gap: 5px; */
+    padding: 1px;
+
+    width: 50px;
+    /* width: min(40px, 80px); */
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #05BCCA;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #05BCCA;
+    cursor: pointer;
+    
+    transition: 0.3s;
+}
+
+.cartItemsNumber {
+    color: gold;
+}
+
+.searchInput {
+    background-color: transparent;
+    border-radius: 5px;
+    color: #05BCCA;
+}
+
+.header_button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    background-color: #05BCCA;
+    border-style: none;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #2C4246;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.header_button2:hover,
+.header_button1:hover {
+    transform: scale(1.2);
+}
+
+.header_cart_size {
+    font-size: 20px;
+}
