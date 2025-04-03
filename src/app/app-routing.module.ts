@@ -8,6 +8,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: "",
+    redirectTo: "chat",
+    pathMatch: "full"
+  },
+  {
+    path: "chat",
     component: DashboardComponent,
   },
   {
