@@ -2,7 +2,8 @@
 
     <div class="messages">
         <div *ngFor="let msg of receivedMassages" 
-             [ngClass]="msg.sender === 1 ? 'message-item sender1' : 'message-item sender2'">
+            [ngClass]="msg.sender ===  senderId ? 'message-item sender2': 'message-item sender1'">
+
              
             <span *ngIf="msg.sender === 2">John: {{ msg.text }} </span>
             <span *ngIf="msg.sender !== 2">Mark: {{ msg.text }}</span>
@@ -10,11 +11,11 @@
     </div>
     
        
-        <div class="chat-container container">
-            <div class="chat-box">
-                <input type="text" [(ngModel)]="text" (keyup.enter)="sentMassage()"  placeholder="Type a message...">
-                <button (click)="sentMassage()">Send</button>
-            </div>
-            
+    <div class="chat-container container">
+        <div class="chat-box">
+            <input type="text" [(ngModel)]="text" (keyup.enter)="sentMassage()"  placeholder="Type a message...">
+            <button (click)="sentMassage()">Send</button>
         </div>
+        
+    </div>
 </div>
