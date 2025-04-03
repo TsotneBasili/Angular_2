@@ -1,0 +1,13 @@
+.reviewDiv {
+    position: relative;
+    top: 100px;
+    padding: 100px;
+    background-color: red;
+
+}
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}

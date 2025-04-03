@@ -9,6 +9,11 @@ import { ChatComponent } from './chat/chat.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
+import { Routes, RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+
 
 @NgModule({
   declarations: [
@@ -18,11 +23,13 @@ import { FooterComponent } from './footer/footer.component';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
+    ReviewFormComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

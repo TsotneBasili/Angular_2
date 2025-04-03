@@ -1,20 +1,12 @@
 .dashboard_div{
+    padding: 100px;
+    display: flex;
+    justify-content: space-around;
     position: relative;
     top: 100px;
 }
 
-.messages {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 400px;
-    max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
+
 
 .message-item {
     background-color: #e1ffc7;
@@ -25,12 +17,3 @@
     max-width: 80%;
 }
 
-.sender1 {
-    background-color: #e1ffc7; 
-    align-self: flex-start;
-}
-
-.sender2 {
-    background-color: #c7d9ff; 
-    align-self: flex-end;
-}
