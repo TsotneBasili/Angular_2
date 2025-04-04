@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  receivedMassages: { text: string, sender: number }[] = [];
+  receivedMassages: { text: string, sender: number, userName: string }[] = [];
 
-  receivedMassage(event: { text: string, sender: number }) {
+  receivedMassage(event: { text: string, sender: number, userName: string }) {
     this.receivedMassages.push(event);
   }
 }

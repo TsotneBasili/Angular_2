@@ -5,8 +5,7 @@
             [ngClass]="msg.sender ===  senderId ? 'message-item sender2': 'message-item sender1'">
 
              
-            <span *ngIf="msg.sender === 2">John: {{ msg.text }} </span>
-            <span *ngIf="msg.sender !== 2">Mark: {{ msg.text }}</span>
+            <span >{{msg.userName}}: {{ msg.text }} </span>
         </div>
     </div>
     

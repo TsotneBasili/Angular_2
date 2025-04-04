@@ -1,9 +1,9 @@
 <div class="dashboard_div">
     <div>     
-        <app-chat [senderId]="1"  (sendMassage)="receivedMassage($event)"  [receivedMassages]="receivedMassages"></app-chat>
+        <app-chat userName="John" [senderId]="1"  (sendMassage)="receivedMassage($event)"  [receivedMassages]="receivedMassages"></app-chat>
     </div>
     
     <div>
-        <app-chat [senderId]="2" (sendMassage)="receivedMassage($event)"  [receivedMassages]="receivedMassages"></app-chat>
+        <app-chat userName="Mark" [senderId]="2" (sendMassage)="receivedMassage($event)"  [receivedMassages]="receivedMassages"></app-chat>
     </div>
 </div>

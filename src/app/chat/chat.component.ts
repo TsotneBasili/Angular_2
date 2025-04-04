@@ -8,10 +8,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ChatComponent {
   @Input() senderId!: number;
+  @Input() userName: string = "";
   @Input() text: string = "";
   // @Output() sendMassage: EventEmitter<string> = new EventEmitter
-  @Output() sendMassage: EventEmitter<{ text: string, sender: number }> = new EventEmitter();
-  @Input() receivedMassages: { text: string, sender: number }[] = [];
+  @Output() sendMassage: EventEmitter<{ text: string, sender: number, userName: string }> = new EventEmitter();
+  @Input() receivedMassages: { text: string, sender: number, userName: string }[] = [];
 
  
 
@@ -20,7 +21,7 @@ export class ChatComponent {
     if (this.text === ""){
       return
     }else{
-      this.sendMassage.emit({ text: this.text, sender: this.senderId });
+      this.sendMassage.emit({ text: this.text, sender: this.senderId, userName: this.userName });
         this.text = "";
     }
   }
