@@ -1,23 +1,63 @@
 <div class="reviewDiv">
 
     <section class="reviewSection">
-        <form action="" class="reviewForm">
-            <input type="text" placeholder="name and surname">
-            <select class="form-control">
-                <option value="">Choose Product</option>
-                <option value="georgia">PC</option>
-                <option value="USA">Laptop</option>
-                <option value="USA">Mobile phone</option>
-              </select>
-              <textarea name="" id="" placeholder="Write what did you like here..."></textarea>
-              <textarea name="" id="" placeholder="Write what did not you like here..."></textarea>
-              <button type="submit">Submit Review</button>
+        <form class="reviewForm" [formGroup]="registerForm" (submit)="upload()">
+            <label for="fullNAme">Full Name</label>
+            <input id="fullNAme" type="text" placeholder="Name and Lastname" formControlName="fullName">
+            
+            <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['required']">
+                This field is required.
+            </p>
+
+            <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['minlength']">
+                Name must be at least 3 characters long.
+            </p>
+
+            <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['maxlength']">
+                Name must be maximum 20 characters long.
+            </p>
+
+            <select class="form-control" formControlName="Product">
+                <option value="" disabled selected>Choose Product</option>
+                <option value="PC">PC</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Mobile phone">Mobile phone</option>
+            </select>
+            <p class="error" *ngIf="registerForm.controls.Product.touched && registerForm.controls.Product.errors?.['required']">
+                Please choose the product
+            </p>
+            
+            
+            <textarea formControlName="Liked" name="" id="" placeholder="Write what did you like here..."></textarea>
+            <p class="error" *ngIf="registerForm.controls.Liked.touched && registerForm.controls.Liked.errors?.['required']">
+                This field is required
+            </p>
+
+            <textarea formControlName="NotLiked" name="" id="" placeholder="Write what you did not like here..."></textarea>
+            <p class="error" *ngIf="registerForm.controls.NotLiked.touched && registerForm.controls.NotLiked.errors?.['required']">
+                This field is required
+            </p>
+
+            <div class="termsAndCondsDiv">
+                <label>agree on terms and conditions</label>
+                <input formControlName="termsAndConds" type="checkbox" name="">
+            </div>
+            <p class="error" *ngIf="registerForm.controls.termsAndConds.touched && registerForm.controls.termsAndConds.errors?.['required']">
+                You must accept the terms and conditions to upload the review
+            </p>
+
+            <button type="submit">Submit Review</button>
         </form>
     
+        
     </section>
     
-    
-    <section class="reviewApprovedSection">
-    
+    <section class="reviewApprovedSection" *ngIf="updated">
+        <button (click)="viewReview = !viewReview">Thank you for sharing your experience. Click here to see your review</button>
+        <section *ngIf="viewReview">
+                <p>product name: {{product}}</p>
+                <p>what you liked: {{liked}} </p>
+                <p>what you did not like: {{notLiked}} </p>
+        </section>
     </section>
 </div>
