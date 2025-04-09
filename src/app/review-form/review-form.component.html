@@ -1,22 +1,44 @@
 <div class="reviewDiv">
 
     <section class="reviewSection">
-        <form class="reviewForm" [formGroup]="registerForm" (submit)="upload()">
-            <label for="fullNAme">Full Name</label>
-            <input id="fullNAme" type="text" placeholder="Name and Lastname" formControlName="fullName">
+        <form class="reviewForm" [formGroup]="registerForm" (submit)="upload()" *ngIf="FormVisible">
+            <div>
+                <h2>Customer Review Form</h2>
+                <h6>We value your feedback. please take a moment to review your experience with us.</h6>
+            </div>
+            <div class="NameEmailDiv">
+                <!-- fullname -->
+                <input type="text" placeholder="Name and Lastname" formControlName="fullName" class="emailNameStyles">
+                <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['required']">
+                    This field is required.
+                </p>
+    
+                <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['minlength']">
+                    Name must be at least 3 characters long.
+                </p>
+    
+                <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['maxlength']">
+                    Name must be maximum 20 characters long.
+                </p>
+    
+                <!-- email -->
+                <input type="email" placeholder="Your Email" formControlName="Email" class="emailNameStyles">
+                <p class="error" *ngIf="registerForm.controls.Email.touched && registerForm.controls.Email.errors?.['required']">
+                    This field is required.
+                </p>
+            </div>
             
-            <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['required']">
+            <!-- number -->
+            <input id="numberId" type="number" placeholder="Your Phone Number" formControlName="Number" class="numberStyles">
+            <label for="numberId">We might contact you for further clarifications.</label>
+            <p class="error" *ngIf="registerForm.controls.Number.touched && registerForm.controls.Number.errors?.['required']">
                 This field is required.
             </p>
-
-            <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['minlength']">
-                Name must be at least 3 characters long.
-            </p>
-
-            <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['maxlength']">
-                Name must be maximum 20 characters long.
-            </p>
-
+            <p class="error" *ngIf="registerForm.controls.Number.touched && registerForm.controls.Number.errors?.['pattern']">
+                Must be a valid number.
+              </p>
+            
+            <!-- product selection -->
             <select class="form-control" formControlName="Product">
                 <option value="" disabled selected>Choose Product</option>
                 <option value="PC">PC</option>
@@ -26,27 +48,51 @@
             <p class="error" *ngIf="registerForm.controls.Product.touched && registerForm.controls.Product.errors?.['required']">
                 Please choose the product
             </p>
-            
-            
-            <textarea formControlName="Liked" name="" id="" placeholder="Write what did you like here..."></textarea>
-            <p class="error" *ngIf="registerForm.controls.Liked.touched && registerForm.controls.Liked.errors?.['required']">
-                This field is required
-            </p>
 
-            <textarea formControlName="NotLiked" name="" id="" placeholder="Write what you did not like here..."></textarea>
-            <p class="error" *ngIf="registerForm.controls.NotLiked.touched && registerForm.controls.NotLiked.errors?.['required']">
-                This field is required
-            </p>
+            <!-- score -->
+            <div formGroupName="Review">
+                
+                <div>
+                    <h4>Overall Experience</h4>
+                    <p>Rate your overall experience with us</p>
+                    <div class="score-checkboxes">
+                        <button type="button" class="buttonScore" *ngFor="let button of buttons; let i = index" [ngClass]="{ 'active-score': selectedScore === i + 1 }"
+                        (click)="setScore(i + 1)">{{ i + 1 }}</button>
+                    </div>
+                </div>
+
+    
+                <!-- <div>
+                    <h4>Quality of Service</h4>
+                    <p>Rate the quality of service provided</p>
+                    <i class="bi bi-star  starStyle" *ngFor="let star of stars"></i>     
+                </div> -->
+    
+                <!-- <div>
+                    <h4>Would you recommend us to your Friend?</h4>
+                    <p>Do you like our product enough to recommend it?</p>
+                    <button class="likeButton">
+                        <p>Yes</p>
+                        <i class="bi bi-hand-thumbs-up"></i>
+                    </button>
+                    <button class="dislikeButton">
+                        <p>No</p>
+                        <i class="bi bi-hand-thumbs-down"></i>
+                    </button>
+                </div> -->
+    
+                <textarea formControlName="Liked" name="" id="" placeholder="Write what did you like here..." class="likedTextArea"></textarea>
+            </div>
 
             <div class="termsAndCondsDiv">
-                <label>agree on terms and conditions</label>
+                <label>I agree that my review can be published on the website</label>
                 <input formControlName="termsAndConds" type="checkbox" name="">
             </div>
             <p class="error" *ngIf="registerForm.controls.termsAndConds.touched && registerForm.controls.termsAndConds.errors?.['required']">
                 You must accept the terms and conditions to upload the review
             </p>
 
-            <button type="submit">Submit Review</button>
+            <button class="submitButton" type="submit">Submit Review</button>
         </form>
     
         
@@ -57,7 +103,7 @@
         <section *ngIf="viewReview">
                 <p>product name: {{product}}</p>
                 <p>what you liked: {{liked}} </p>
-                <p>what you did not like: {{notLiked}} </p>
+                <p>score: {{selectedScore}} </p>
         </section>
     </section>
 </div>

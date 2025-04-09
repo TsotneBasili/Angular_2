@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Registerform } from './form.type';
 
 @Component({
@@ -11,22 +11,36 @@ import { Registerform } from './form.type';
 export class ReviewFormComponent {
   registerForm: FormGroup<Registerform> = new FormGroup<Registerform>({
     fullName: new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
+    Email: new FormControl(null, Validators.required),
+    Number: new FormControl(null, [Validators.required]),
     Product: new FormControl('', Validators.required),
-    Liked: new FormControl(null, Validators.required),
-    NotLiked: new FormControl(null, Validators.required),
+    Review: new FormGroup({
+      Score: new FormControl(),
+      Liked: new FormControl(),
+    }),
     termsAndConds: new FormControl(null, Validators.requiredTrue)
   })
 
+  buttons = Array(10).fill(0);
+  selectedScore: number | null = null;
+  setScore(score: number) {
+    this.selectedScore = score;
+    this.registerForm.controls.Review.controls.Score.setValue(score);
+  }
+
+
+  stars = Array(5).fill(0);
+
   product: string | null = null;
   liked: string | null = null;
-  notLiked: string | null = null;
+  
 
   constructor(){
 
   }
 
 
-  
+  FormVisible = true
   updated = false;
 
   viewReview = false;
@@ -38,12 +52,13 @@ export class ReviewFormComponent {
     if(this.registerForm.valid){
       this.updated = true;
       this.product = this.registerForm.controls.Product.value
-      this.liked = this.registerForm.controls.Liked.value
-      this.notLiked = this.registerForm.controls.NotLiked.value
+      this.liked = this.registerForm.controls.Review.controls.Liked.value
       this.registerForm.reset();
+      this.FormVisible = false
     }else{
       this.registerForm.markAllAsTouched();
       // console.error(this.registerForm)
     }
   }
+
 }

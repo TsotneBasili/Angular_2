@@ -14,16 +14,42 @@
 }
 
 .reviewSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 .reviewForm {
     display: flex;
+    align-items: center;
     flex-direction: column;
     row-gap: 30px;
+    padding: 30px;
+    border-radius: 30px;
+    width: 40%;
+
+    background-color: white;
+}
+
+.NameEmailDiv {
+    display: flex;
+    justify-content:space-between;
+
+    column-gap: 45px;
+}
+
+.emailNameStyles {
     padding: 10px;
-    border-radius: 5px;
-    background-color: rgb(47, 125, 94);
+    width: 50%;
+    height: 40px;
+}
+
+.numberStyles {
+    padding: 10px;
+    width: 100%;
+    height: 40px;
 }
 
 .reviewApprovedSection{
@@ -44,4 +70,58 @@
 .error {
     color: red;
 
+}
+
+.starStyle {
+    cursor: pointer;
+}
+
+.buttonScore:hover {
+    background-color: green;
+
+}
+
+.buttonScore {
+    background-color: lightgray;
+    border: 1px solid #ccc;
+    margin: 2px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .buttonScore.active-score {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+  }
+  
+
+.starStyle:hover {
+    color: gold;
+}
+
+.starClickedStyle {
+    color: gold;
+}
+
+.likeButton:hover {
+    background-color: green;
+
+}
+
+.dislikeButton:hover {
+    background-color: red;
+}
+
+.likedTextArea {
+    width: 100%;
+}
+
+.submitButton {
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
 }
