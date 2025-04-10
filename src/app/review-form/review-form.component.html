@@ -49,9 +49,10 @@
                 Please choose the product
             </p>
 
-            <!-- score -->
-            <div formGroupName="Review">
+            <!--  Review-->
+            <div formGroupName="Review" class="ReviewDivStyles">
                 
+                <!-- score -->
                 <div>
                     <h4>Overall Experience</h4>
                     <p>Rate your overall experience with us</p>
@@ -62,11 +63,17 @@
                 </div>
 
     
-                <!-- <div>
+                <!-- stars -->
+                <div class="starsMainDivStyles">
                     <h4>Quality of Service</h4>
                     <p>Rate the quality of service provided</p>
-                    <i class="bi bi-star  starStyle" *ngFor="let star of stars"></i>     
-                </div> -->
+                    <div class="starsDivStyles" formArrayName="Stars">
+                        <!-- @for (star of stars; track $index) {
+                            <i class="bi bi-star  starStyle" *ngFor="let star of stars" [formControlName]="$index" ></i>   
+                            } -->
+                        <!-- <i class="bi bi-star  starStyle" *ngFor="let star of stars"></i>      -->
+                    </div>
+                </div>
     
                 <!-- <div>
                     <h4>Would you recommend us to your Friend?</h4>
@@ -85,8 +92,8 @@
             </div>
 
             <div class="termsAndCondsDiv">
-                <label>I agree that my review can be published on the website</label>
                 <input formControlName="termsAndConds" type="checkbox" name="">
+                <label>I agree that my review can be published on the website</label>
             </div>
             <p class="error" *ngIf="registerForm.controls.termsAndConds.touched && registerForm.controls.termsAndConds.errors?.['required']">
                 You must accept the terms and conditions to upload the review
@@ -101,8 +108,8 @@
     <section class="reviewApprovedSection" *ngIf="updated">
         <button (click)="viewReview = !viewReview">Thank you for sharing your experience. Click here to see your review</button>
         <section *ngIf="viewReview">
-                <p>product name: {{product}}</p>
-                <p>what you liked: {{liked}} </p>
+                <p>product name: {{Product}}</p>
+                <p>what you liked: {{Liked}} </p>
                 <p>score: {{selectedScore}} </p>
         </section>
     </section>

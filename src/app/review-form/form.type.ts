@@ -11,5 +11,6 @@ export interface Registerform {
 
 export interface ReviewGroup {
     Score: FormControl<number | null>,
+    Stars: FormArray<any>,
     Liked: FormControl<string | null>,
 }
