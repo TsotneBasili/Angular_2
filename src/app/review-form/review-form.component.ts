@@ -16,14 +16,7 @@ export class ReviewFormComponent {
     Product: new FormControl('', Validators.required),
     Review: new FormGroup({
       Score: new FormControl(),
-      Stars: new FormArray([
-        new FormControl(1),
-        new FormControl(2),
-        new FormControl(3),
-        new FormControl(4),
-        new FormControl(5),
-      ]
-      ),
+      rating: new FormControl(),
       Liked: new FormControl(),
     }),
     termsAndConds: new FormControl(null, Validators.requiredTrue)
@@ -37,7 +30,15 @@ export class ReviewFormComponent {
   }
 
 
-  stars = Array(5).fill(0);
+  get rating() {
+    return this.registerForm.controls.Review.get('rating') as FormControl;
+  }
+
+  stars = [1, 2, 3, 4, 5];
+
+  setRating(value: number) {
+    this.rating.setValue(value);
+  }
 
   Product: string | null = null;
   Liked: string | null = null;

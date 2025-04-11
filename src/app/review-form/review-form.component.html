@@ -67,12 +67,33 @@
                 <div class="starsMainDivStyles">
                     <h4>Quality of Service</h4>
                     <p>Rate the quality of service provided</p>
-                    <div class="starsDivStyles" formArrayName="Stars">
-                        <!-- @for (star of stars; track $index) {
-                            <i class="bi bi-star  starStyle" *ngFor="let star of stars" [formControlName]="$index" ></i>   
-                            } -->
-                        <!-- <i class="bi bi-star  starStyle" *ngFor="let star of stars"></i>      -->
-                    </div>
+                    <div class="starsDivStyles">
+                        <i *ngFor="let star of stars; let i = index" class="bi starStyle" [ngClass]="rating.value > i ? 'bi-star-fill' : 'bi-star'" (click)="setRating(i + 1)"></i>
+                      </div>
+
+                      <div *ngIf="rating.value >= 4">
+                        <h4>what did you especially enjoy?</h4>
+                        <div>
+                            <button type="button">good staff</button>
+                            <button type="button"> quality of service</button>
+                        </div>
+                      </div>
+
+                      <div *ngIf="rating.value == 2 || rating.value == 3">
+                        <h4>what can we improve?</h4>
+                        <div>
+                            <button type="button"> quality of service</button>
+                            <button type="button">staff behaviour</button>
+                        </div>
+                      </div>
+
+                      <div *ngIf="rating.value == 1">
+                        <h4>tell us what didn’t go as expected</h4>
+                        <div>
+                            <button type="button">an item was missing</button>
+                            <button type="button">the quality was awful</button>
+                        </div>
+                      </div>
                 </div>
     
                 <!-- <div>
