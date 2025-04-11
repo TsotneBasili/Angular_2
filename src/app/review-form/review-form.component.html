@@ -18,7 +18,7 @@
                          </p>
              
                          <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['minlength']">
-                             Name must be at least 3 characters long.
+                             Name must be at least 4 characters long.
                          </p>
              
                          <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['maxlength']">
@@ -139,11 +139,12 @@
     </section>
     
     <section class="reviewApprovedSection" *ngIf="updated">
-        <button (click)="viewReview = !viewReview">Thank you for sharing your experience. Click here to see your review</button>
+        <button (click)="viewReview = !viewReview" *ngIf="!viewReview">Thank you for sharing your experience. Click here to see your review</button>
         <section *ngIf="viewReview">
                 <p>product name: {{Product}}</p>
                 <p>what you liked: {{Liked}} </p>
                 <p>score: {{selectedScore}} </p>
+                
         </section>
     </section>
 </div>
