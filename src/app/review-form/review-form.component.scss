@@ -119,6 +119,27 @@
     color: gold;
 }
 
+.starsOption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.optionToCHoose {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.chooseButton{
+    padding: 10px;
+}
+
+.chooseButton:hover {
+    color: white;
+    background-color: black;
+}
+
 .likeButton:hover {
     background-color: green;
 

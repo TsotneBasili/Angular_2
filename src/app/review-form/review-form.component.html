@@ -71,27 +71,27 @@
                         <i *ngFor="let star of stars; let i = index" class="bi starStyle" [ngClass]="rating.value > i ? 'bi-star-fill' : 'bi-star'" (click)="setRating(i + 1)"></i>
                       </div>
 
-                      <div *ngIf="rating.value >= 4">
+                      <div *ngIf="rating.value >= 4" class="starsOption">
                         <h4>what did you especially enjoy?</h4>
-                        <div>
-                            <button type="button">good staff</button>
-                            <button type="button"> quality of service</button>
+                        <div class="optionToCHoose">
+                            <button class="chooseButton" type="button">good staff</button>
+                            <button class="chooseButton" type="button"> quality of service</button>
                         </div>
                       </div>
 
-                      <div *ngIf="rating.value == 2 || rating.value == 3">
+                      <div *ngIf="rating.value == 2 || rating.value == 3" class="starsOption">
                         <h4>what can we improve?</h4>
-                        <div>
-                            <button type="button"> quality of service</button>
-                            <button type="button">staff behaviour</button>
+                        <div class="optionToCHoose">
+                            <button class="chooseButton" type="button"> quality of service</button>
+                            <button class="chooseButton" type="button">staff behaviour</button>
                         </div>
                       </div>
 
-                      <div *ngIf="rating.value == 1">
+                      <div *ngIf="rating.value == 1" class="starsOption">
                         <h4>tell us what didn’t go as expected</h4>
-                        <div>
-                            <button type="button">an item was missing</button>
-                            <button type="button">the quality was awful</button>
+                        <div class="optionToCHoose">
+                            <button class="chooseButton" type="button">an item was missing</button>
+                            <button class="chooseButton" type="button">the quality was awful</button>
                         </div>
                       </div>
                 </div>
