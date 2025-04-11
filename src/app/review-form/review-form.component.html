@@ -6,37 +6,49 @@
                 <h2>Customer Review Form</h2>
                 <h6>We value your feedback. please take a moment to review your experience with us.</h6>
             </div>
-            <div class="NameEmailDiv">
-                <!-- fullname -->
-                <input type="text" placeholder="Name and Lastname" formControlName="fullName" class="emailNameStyles">
-                <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['required']">
-                    This field is required.
-                </p>
+            <div class="NameEmailNumberDiv">
+
+                <div class="NameEmailDiv">
+                    <!-- fullname -->
+                     <div >
     
-                <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['minlength']">
-                    Name must be at least 3 characters long.
-                </p>
-    
-                <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['maxlength']">
-                    Name must be maximum 20 characters long.
-                </p>
-    
-                <!-- email -->
-                <input type="email" placeholder="Your Email" formControlName="Email" class="emailNameStyles">
-                <p class="error" *ngIf="registerForm.controls.Email.touched && registerForm.controls.Email.errors?.['required']">
-                    This field is required.
-                </p>
-            </div>
+                         <input type="text" placeholder="Name and Lastname" formControlName="fullName" class="emailNameStyles">
+                         <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['required']">
+                             This field is required.
+                         </p>
+             
+                         <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['minlength']">
+                             Name must be at least 3 characters long.
+                         </p>
+             
+                         <p class="error" *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.errors?.['maxlength']">
+                             Name must be maximum 20 characters long.
+                         </p>
+                     </div>
+        
+                    <!-- email -->
+                     <div>
+                         <input type="email" placeholder="Your Email" formControlName="Email" class="emailNameStyles">
+                         <p class="error" *ngIf="registerForm.controls.Email.touched && registerForm.controls.Email.errors?.['required']">
+                             This field is required.
+                         </p>
+                     </div>
+                </div>
+
+                <!-- number -->
+                 <div>
+
+                     <input id="numberId" type="tel" placeholder="Your Phone Number" formControlName="Number" class="numberStyles">
+                     <p class="error" *ngIf="registerForm.controls.Number.touched && registerForm.controls.Number.errors?.['required']">
+                         This field is required.
+                     </p>
+                     <p class="error" *ngIf="registerForm.controls.Number.touched && registerForm.controls.Number.errors?.['pattern']">
+                         Must be a valid number.
+                     </p>
+                     <label for="numberId">We might contact you for further clarifications.</label>
+                 </div>
+                </div>
             
-            <!-- number -->
-            <input id="numberId" type="number" placeholder="Your Phone Number" formControlName="Number" class="numberStyles">
-            <label for="numberId">We might contact you for further clarifications.</label>
-            <p class="error" *ngIf="registerForm.controls.Number.touched && registerForm.controls.Number.errors?.['required']">
-                This field is required.
-            </p>
-            <p class="error" *ngIf="registerForm.controls.Number.touched && registerForm.controls.Number.errors?.['pattern']">
-                Must be a valid number.
-              </p>
             
             <!-- product selection -->
             <select class="form-control" formControlName="Product">
